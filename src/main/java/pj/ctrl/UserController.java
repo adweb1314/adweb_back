@@ -1,13 +1,10 @@
 package pj.ctrl;
 
-import java.io.InputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +14,7 @@ import pj.bean.Ret;
 import pj.support.Utils;
 
 @RestController
-public class LoginController {
+public class UserController {
 
     @RequestMapping("/login/{id}/{password}")
     public Ret loginConfirm(@PathVariable("id")String id,

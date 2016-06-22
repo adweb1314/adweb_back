@@ -18,6 +18,8 @@
     <mappers>
         <!-- 注册userMapper.xml文件， userMapper.xml位于mapping这个包下-->
         <mapper resource="mapping/userMapper.xml"/>
+        <mapper resource="mapping/sightMapper.xml"/>
+        <mapper resource="mapping/sighttypeMapper.xml"/>
     </mappers>
     
 </configuration>
