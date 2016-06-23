@@ -20,6 +20,7 @@
         <mapper resource="mapping/userMapper.xml"/>
         <mapper resource="mapping/sightMapper.xml"/>
         <mapper resource="mapping/sighttypeMapper.xml"/>
+        <mapper resource="mapping/historyMapper.xml"/>
     </mappers>
     
 </configuration>
