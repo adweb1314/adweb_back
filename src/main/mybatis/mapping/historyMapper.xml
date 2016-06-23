@@ -16,6 +16,11 @@
 		delete from history where history_id=#{history_id}
 	</delete>
 	
+	<!-- 删除某个user的所有记录 -->
+	<delete id="deleteUserHistory" parameterType="java.lang.String">
+		delete from history where user_id=#{user_id}
+	</delete>
+	
 	<!-- 搜索去重 -->
 	<select id="getHistoryCount" parameterType="entity.History" resultType="entity.History">
 		select * from history where user_id=#{user_id} and history_content=#{history_content}
