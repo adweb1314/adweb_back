@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.wishMapper">
+	<!-- 选择一个心愿记录 -->
+	<select id="getWish" parameterType="entity.UserSight" resultType="int">
+		select count(wish_id) from wish where user_id=#{user_id} and sight_name=#{sight_name}
+	</select>
+	
+	<!-- 删除一个心愿记录 -->
+	<delete id="deleteWish" parameterType="entity.UserSight">
+		delete from wish where user_id=#{user_id} and sight_name=#{sight_name}
+	</delete>
+	
+	<!-- 增加一个心愿记录 -->
+	<insert id="addWish" parameterType="entity.UserSight">
+		insert into wish(user_id, sight_name) values(#{user_id}, #{sight_name})
+	</insert>
+</mapper>
