@@ -15,4 +15,9 @@
 	<insert id="addShare" parameterType="entity.UserSight">
 		insert into share(user_id, sight_name) values(#{user_id}, #{sight_name})
 	</insert>
+	
+	<!-- 查询一个景点的分享记录数 -->
+	<select id="queryShareNumBySight" parameterType="java.lang.String" resultType="int">
+		select count(share_id) from share where sight_name=#{sight_name}
+	</select>
 </mapper>

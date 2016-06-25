@@ -15,4 +15,9 @@
 	<insert id="addWish" parameterType="entity.UserSight">
 		insert into wish(user_id, sight_name) values(#{user_id}, #{sight_name})
 	</insert>
+	
+	<!-- 查询一个景点的心愿记录数 -->
+	<select id="queryWishNumBySight" parameterType="java.lang.String" resultType="int">
+		select count(wish_id) from wish where sight_name=#{sight_name}
+	</select>
 </mapper>

@@ -49,4 +49,15 @@ public class StepController {
         	return new Ret(1);
         }
 	}
+	
+	@RequestMapping("/stepNum/{sight_name}")
+	public Ret isShare(@PathVariable("sight_name")String sight_name,
+    		HttpServletRequest request,HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
+        SqlSession session = Utils.getSession();
+        
+        String statement = "mapping.stepMapper.queryStepNumBySight";
+        int num = session.selectOne(statement, sight_name);
+        return new Ret(num>0?1:0, num);
+	}
 }

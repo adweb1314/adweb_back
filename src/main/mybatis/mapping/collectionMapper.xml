@@ -15,4 +15,9 @@
 	<insert id="addCollection" parameterType="entity.UserSight">
 		insert into collection(user_id, sight_name) values(#{user_id}, #{sight_name})
 	</insert>
+	
+	<!-- 查询一个景点的收藏记录数 -->
+	<select id="queryCollectionNum" parameterType="java.lang.String" resultType="int">
+		select count(collection_id) from collection where sight_name=#{sight_name}
+	</select>
 </mapper>
