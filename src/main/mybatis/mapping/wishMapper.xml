@@ -20,4 +20,9 @@
 	<select id="queryWishNumBySight" parameterType="java.lang.String" resultType="int">
 		select count(wish_id) from wish where sight_name=#{sight_name}
 	</select>
+	
+	<!-- 获取一个用户所有的心愿 -->
+	<select id="getWishByUser" parameterType="java.lang.String" resultType="java.lang.String">
+		select sight_name from wish where user_id=#{user_id}
+	</select>
 </mapper>

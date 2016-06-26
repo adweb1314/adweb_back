@@ -1,5 +1,7 @@
 package pj.ctrl;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,6 +17,7 @@ import pj.support.Utils;
 @RestController
 public class ShareController {
 	
+	/*检查某个用户是否已分享某个景点*/
 	@RequestMapping("/share/{user_id}/{sight_name}")
 	public Ret isShare(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
@@ -27,6 +30,7 @@ public class ShareController {
         return new Ret(num>0?1:0);
 	}
 	
+	/*用户分享/取消分享某个景点*/
 	@RequestMapping("/share/toggle/{user_id}/{sight_name}")
 	public Ret toggleShare(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
@@ -50,6 +54,7 @@ public class ShareController {
         }
 	}
 	
+	/*获取某个景点的被分享次数*/
 	@RequestMapping("/shareNum/{sight_name}")
 	public Ret getShareNumBySight(@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
@@ -59,5 +64,17 @@ public class ShareController {
         String statement = "mapping.shareMapper.queryShareNumBySight";
         int num = session.selectOne(statement, sight_name);
         return new Ret(num>0?1:0, num);
+	}
+	
+	/*获取某个用户的所有分享记录*/
+	@RequestMapping("share/{user_id}")
+	public List<String> getUserShares(@PathVariable("user_id")String user_id,
+			HttpServletRequest request,HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
+        SqlSession session = Utils.getSession();
+        
+        String statement = "mapping.shareMapper.getShareByUser";
+        List<String> list = session.selectList(statement, user_id);
+        return list;
 	}
 }

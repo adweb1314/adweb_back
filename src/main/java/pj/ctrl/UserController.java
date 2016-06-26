@@ -16,6 +16,7 @@ import pj.support.Utils;
 @RestController
 public class UserController {
 
+	/*用户登陆验证*/
     @RequestMapping("/login/{id}/{password}")
     public Ret loginConfirm(@PathVariable("id")String id,
     		@PathVariable("password")String password,
@@ -33,6 +34,7 @@ public class UserController {
     		return new Ret(0);
     }
     
+    /*用户注册*/
     @RequestMapping("/register/{id}/{password}")
     public Ret register(@PathVariable("id")String id, @PathVariable("password")String password,
     		HttpServletRequest request,HttpServletResponse response){
@@ -51,5 +53,33 @@ public class UserController {
         	session.commit();
         	return new Ret(1);	
         }
+    }
+    
+    /*用户修改账号密码*/
+    @RequestMapping("/user/updatePassword/{user_id}/{user_password}")
+    public Ret updatePassword(@PathVariable("user_id")String user_id, @PathVariable("user_password")String user_password,
+    		HttpServletRequest request,HttpServletResponse response){
+    	response.setHeader("Access-Control-Allow-Origin", "*");
+    	
+    	SqlSession session = Utils.getSession();
+        
+        String statement = "mapping.userMapper.updatePassword";
+        int num = session.update(statement, new User(user_id, null, user_password, null));
+        session.commit();
+        return new Ret(num);
+    }
+    
+    /*用户修改用户名和头像*/
+    @RequestMapping("/user/updateNameAndPic/{user_id}/{user_name}/{user_pic}")
+    public Ret updatePassword(@PathVariable("user_id")String user_id, @PathVariable("user_name")String user_name, @PathVariable("user_pic")String user_pic,
+    		HttpServletRequest request,HttpServletResponse response){
+    	response.setHeader("Access-Control-Allow-Origin", "*");
+    	
+    	SqlSession session = Utils.getSession();
+        
+        String statement = "mapping.userMapper.updateNameAndPic";
+        int num = session.update(statement, new User(user_id, user_name, null, user_pic));
+        session.commit();
+        return new Ret(num);
     }
 }

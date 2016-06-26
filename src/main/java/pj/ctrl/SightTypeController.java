@@ -15,6 +15,7 @@ import pj.support.Utils;
 @RestController
 public class SightTypeController {
 	
+	/*获取所有景点类型列表*/
 	@RequestMapping("/sight_type")
     public List<SightType> getAllSightTypes(HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");

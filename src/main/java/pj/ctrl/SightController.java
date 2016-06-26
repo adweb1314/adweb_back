@@ -15,6 +15,7 @@ import pj.support.Utils;
 @RestController
 public class SightController {
 	
+	/*获取所有的景点列表*/
 	@RequestMapping("/sight")
     public List<Sight> getAllSights(HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");

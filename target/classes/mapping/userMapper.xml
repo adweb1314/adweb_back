@@ -18,4 +18,14 @@
     <insert id="addUser" parameterType="entity.User">
     	insert into user(user_id, user_name, user_password, user_pic) values(#{user_id}, #{user_name}, #{user_password}, #{user_pic})
     </insert>
+    
+    <!-- 修改密码 -->
+    <select id="updatePassword" parameterType="entity.User">
+    	update user set user_password=#{user_password} where user_id=#{user_id}
+    </select>
+    
+    <!-- 修改name和头像 -->
+    <update id="updateNameAndPic" parameterType="entity.User">
+		update user set user_name=#{user_name}, user_pic=#{user_pic} where user_id=#{user_id}
+    </update>
 </mapper>

@@ -17,6 +17,7 @@ import pj.support.Utils;
 @RestController
 public class CommentController {
 	
+	/*增加某个用户对某景点的一条评论*/
 	@RequestMapping("/comment/{user_id}/{sight_name}/{grade}/{comment}")
 	public Ret addComment(@PathVariable("user_id")String user_id, @PathVariable("sight_name")String sight_name,
 			@PathVariable("grade")int grade, @PathVariable("comment")String comment,
@@ -30,6 +31,7 @@ public class CommentController {
         return new Ret(num);
 	}
 	
+	/*获取某个景点的所有评论*/
 	@RequestMapping("/comment/{sight_name}")
 	public List<Comment> getCommentBySight(@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
@@ -41,6 +43,7 @@ public class CommentController {
         return list;
 	}
 	
+	/*根据id删除某条评论*/
 	@RequestMapping("/comment/delete/{comment_id}")
 	public Ret deleteByCommentID(@PathVariable("comment_id")int comment_id,
 			HttpServletRequest request,HttpServletResponse response){

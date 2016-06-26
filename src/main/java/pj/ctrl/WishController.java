@@ -1,5 +1,7 @@
 package pj.ctrl;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,6 +17,7 @@ import pj.support.Utils;
 @RestController
 public class WishController {
 
+	/*检查某个用户是否已经将某个景点标记为心愿*/
 	@RequestMapping("/wish/{user_id}/{sight_name}")
 	public Ret isWish(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
@@ -27,6 +30,7 @@ public class WishController {
         return new Ret(num>0?1:0);
 	}
 	
+	/*用户标记/取消标记某个景点为心愿*/
 	@RequestMapping("/wish/toggle/{user_id}/{sight_name}")
 	public Ret toggleWish(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
@@ -50,6 +54,7 @@ public class WishController {
         }
 	}
 	
+	/*获取一个景点被标记为心愿的次数*/
 	@RequestMapping("/wishNum/{sight_name}")
 	public Ret getWishNumBySight(@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
@@ -59,5 +64,17 @@ public class WishController {
         String statement = "mapping.wishMapper.queryWishNumBySight";
         int num = session.selectOne(statement, sight_name);
         return new Ret(num>0?1:0, num);
+	}
+	
+	/*获取某个用户的所有心愿记录*/
+	@RequestMapping("wish/{user_id}")
+	public List<String> getUserShares(@PathVariable("user_id")String user_id,
+			HttpServletRequest request,HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
+        SqlSession session = Utils.getSession();
+        
+        String statement = "mapping.wishMapper.getWishByUser";
+        List<String> list = session.selectList(statement, user_id);
+        return list;
 	}
 }
