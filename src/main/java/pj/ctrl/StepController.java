@@ -16,7 +16,7 @@ import pj.support.Utils;
 public class StepController {
 
 	@RequestMapping("/step/{user_id}/{sight_name}")
-	public Ret isShare(@PathVariable("user_id")String user_id,
+	public Ret isStep(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
@@ -28,7 +28,7 @@ public class StepController {
 	}
 	
 	@RequestMapping("/step/toggle/{user_id}/{sight_name}")
-	public Ret toggleCollection(@PathVariable("user_id")String user_id,
+	public Ret toggleStep(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
@@ -51,7 +51,7 @@ public class StepController {
 	}
 	
 	@RequestMapping("/stepNum/{sight_name}")
-	public Ret isShare(@PathVariable("sight_name")String sight_name,
+	public Ret getStepNumBySight(@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
         SqlSession session = Utils.getSession();

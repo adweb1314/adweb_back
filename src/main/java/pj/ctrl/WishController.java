@@ -16,7 +16,7 @@ import pj.support.Utils;
 public class WishController {
 
 	@RequestMapping("/wish/{user_id}/{sight_name}")
-	public Ret isShare(@PathVariable("user_id")String user_id,
+	public Ret isWish(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
@@ -28,7 +28,7 @@ public class WishController {
 	}
 	
 	@RequestMapping("/wish/toggle/{user_id}/{sight_name}")
-	public Ret toggleCollection(@PathVariable("user_id")String user_id,
+	public Ret toggleWish(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
@@ -51,7 +51,7 @@ public class WishController {
 	}
 	
 	@RequestMapping("/wishNum/{sight_name}")
-	public Ret isShare(@PathVariable("sight_name")String sight_name,
+	public Ret getWishNumBySight(@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
         SqlSession session = Utils.getSession();

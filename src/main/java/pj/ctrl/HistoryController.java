@@ -54,7 +54,7 @@ public class HistoryController {
 	
 	/*删除某个搜索记录*/
 	@RequestMapping("/history/delete/{history_id}")
-	public Ret deleteUserHistory(@PathVariable("history_id")int history_id,
+	public Ret deleteHistoryById(@PathVariable("history_id")int history_id,
 			HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		SqlSession session = Utils.getSession();
@@ -67,7 +67,7 @@ public class HistoryController {
 	
 	/*删除某个用户的搜索记录*/
 	@RequestMapping("/history/deleteAll/{user_id}")
-	public Ret deleteOneUserAll(@PathVariable("user_id")String user_id,
+	public Ret deleteHistoryByUser(@PathVariable("user_id")String user_id,
 			HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		SqlSession session = Utils.getSession();

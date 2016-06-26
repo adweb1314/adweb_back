@@ -7,12 +7,13 @@ public class Sight {
 	private double sight_lati;
 	private double sight_longi;
 	private int sight_zoom;
+	private String sight_detail;
 	
 	public Sight() {
 	}
 
 	public Sight(String sight_name, String sight_description, int sight_type_id, double sight_lati, double sight_longi,
-			int sight_zoom) {
+			int sight_zoom, String sight_detail) {
 		super();
 		this.sight_name = sight_name;
 		this.sight_description = sight_description;
@@ -20,6 +21,15 @@ public class Sight {
 		this.sight_lati = sight_lati;
 		this.sight_longi = sight_longi;
 		this.sight_zoom = sight_zoom;
+		this.sight_detail = sight_detail;
+	}
+
+	public String getSight_detail() {
+		return sight_detail;
+	}
+
+	public void setSight_detail(String sight_detail) {
+		this.sight_detail = sight_detail;
 	}
 
 	public String getSight_name() {

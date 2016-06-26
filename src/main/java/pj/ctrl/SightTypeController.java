@@ -16,7 +16,7 @@ import pj.support.Utils;
 public class SightTypeController {
 	
 	@RequestMapping("/sight_type")
-    public List<SightType> loginConfirm(HttpServletRequest request,HttpServletResponse response){
+    public List<SightType> getAllSightTypes(HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		SqlSession session = Utils.getSession();
 		

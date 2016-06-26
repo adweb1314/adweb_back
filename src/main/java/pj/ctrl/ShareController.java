@@ -28,7 +28,7 @@ public class ShareController {
 	}
 	
 	@RequestMapping("/share/toggle/{user_id}/{sight_name}")
-	public Ret toggleCollection(@PathVariable("user_id")String user_id,
+	public Ret toggleShare(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
@@ -51,7 +51,7 @@ public class ShareController {
 	}
 	
 	@RequestMapping("/shareNum/{sight_name}")
-	public Ret isShare(@PathVariable("sight_name")String sight_name,
+	public Ret getShareNumBySight(@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
         SqlSession session = Utils.getSession();
