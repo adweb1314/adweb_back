@@ -26,6 +26,8 @@
         <mapper resource="mapping/stepMapper.xml"/>
         <mapper resource="mapping/wishMapper.xml"/>
         <mapper resource="mapping/commentMapper.xml"/>
+        <mapper resource="mapping/valueMapper.xml"/>
+        <mapper resource="mapping/resourceMapper.xml"/>
     </mappers>
     
 </configuration>
