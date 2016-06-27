@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.collectionMapper">
+	<!-- 选择一个收藏记录 -->
+	<select id="getCollection" parameterType="entity.UserSight" resultType="int">
+		select count(collection_id) from collection where user_id=#{user_id} and sight_name=#{sight_name}
+	</select>
+	
+	<!-- 删除一个收藏记录 -->
+	<delete id="deleteCollection" parameterType="entity.UserSight">
+		delete from collection where user_id=#{user_id} and sight_name=#{sight_name}
+	</delete>
+	
+	<!-- 增加一个收藏记录 -->
+	<insert id="addCollection" parameterType="entity.UserSight">
+		insert into collection(user_id, sight_name) values(#{user_id}, #{sight_name})
+	</insert>
+	
+	<!-- 查询一个景点的收藏记录数 -->
+	<select id="queryCollectionNum" parameterType="java.lang.String" resultType="int">
+		select count(collection_id) from collection where sight_name=#{sight_name}
+	</select>
+	
+	<!-- 获取一个用户所有的收藏 -->
+	<select id="getCollectionByUser" parameterType="java.lang.String" resultType="java.lang.String">
+		select sight_name from collection where user_id=#{user_id}
+	</select>
+</mapper>

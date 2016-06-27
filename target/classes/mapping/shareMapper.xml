@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping.shareMapper">
+	<!-- 选择一个分享记录 -->
+	<select id="getShare" parameterType="entity.UserSight" resultType="int">
+		select count(share_id) from share where user_id=#{user_id} and sight_name=#{sight_name}
+	</select>
+	
+	<!-- 删除一个分享记录 -->
+	<delete id="deleteShare" parameterType="entity.UserSight">
+		delete from share where user_id=#{user_id} and sight_name=#{sight_name}
+	</delete>
+	
+	<!-- 增加一个分享记录 -->
+	<insert id="addShare" parameterType="entity.UserSight">
+		insert into share(user_id, sight_name) values(#{user_id}, #{sight_name})
+	</insert>
+	
+	<!-- 查询一个景点的分享记录数 -->
+	<select id="queryShareNumBySight" parameterType="java.lang.String" resultType="int">
+		select count(share_id) from share where sight_name=#{sight_name}
+	</select>
+	
+	<!-- 获取一个用户所有的分享 -->
+	<select id="getShareByUser" parameterType="java.lang.String" resultType="java.lang.String">
+		select sight_name from share where user_id=#{user_id}
+	</select>
+</mapper>
