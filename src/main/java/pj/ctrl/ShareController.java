@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import entity.Share;
 import entity.UserSight;
 import pj.bean.Ret;
 import pj.support.Utils;
@@ -68,13 +69,13 @@ public class ShareController {
 	
 	/*获取某个用户的所有分享记录*/
 	@RequestMapping("share/{user_id}")
-	public List<String> getUserShares(@PathVariable("user_id")String user_id,
+	public List<Share> getUserShares(@PathVariable("user_id")String user_id,
 			HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
         SqlSession session = Utils.getSession();
         
         String statement = "mapping.shareMapper.getShareByUser";
-        List<String> list = session.selectList(statement, user_id);
+        List<Share> list = session.selectList(statement, user_id);
         return list;
 	}
 }

@@ -28,6 +28,7 @@
         <mapper resource="mapping/commentMapper.xml"/>
         <mapper resource="mapping/valueMapper.xml"/>
         <mapper resource="mapping/resourceMapper.xml"/>
+        <mapper resource="mapping/lineMapper.xml"/>
     </mappers>
     
 </configuration>
