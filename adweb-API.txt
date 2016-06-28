@@ -17,11 +17,12 @@
 	d)获取某个用户的所有收藏			/collection/{user_id}						public List<String> getUserCollections()	返回收藏的列表
 
 5.Share分享记录接口
-	a)查询某个用户是否分享某个景点		/share/{user_id}/{sight_name}					public Ret isShare()				已分享返回 Ret(1)，否则返回 Ret(0)
-	b)增加一条分享记录					/share/add/{user_id}/{sight_name}/{to_user_id}	public Ret addShare()				增加成功返回Ret(1)，失败返回Ret(0)
-	c)删除一条分享记录					/share/delete/{share_id}						public Ret deleteShare()			删除成功返回Ret(1)，失败返回Ret(0)
-	d)获取一个景点被分享的次数			/shareNum/{sight_name}							public Ret getShareNumBySight()		返回一个景点被分享的次数
-	e)获取某个用户的所有分享记录		/share/{user_id}								public List<Share> getUserShares()	返回 Share 的列表
+	a)查询某个用户是否分享某个景点		/share/{user_id}/{sight_name}					public Ret isShare()						已分享返回 Ret(1)，否则返回 Ret(0)
+	b)增加一条分享记录					/share/add/{user_id}/{sight_name}/{to_user_id}	public Ret addShare()						增加成功返回Ret(1)，失败返回Ret(0)
+	c)删除一条分享记录					/share/delete/{share_id}						public Ret deleteShare()					删除成功返回Ret(1)，失败返回Ret(0)
+	d)获取一个景点被分享的次数			/shareNum/{sight_name}							public Ret getShareNumBySight()				返回一个景点被分享的次数
+	e)获取某个用户的所有分享记录		/share/{user_id}								public List<Share> getUserShares()			返回 Share 的列表
+	f)获取@我的分享记录					/share/tome/{to_user_id}						public List<Share> getSharesByToUserId()	返回Share列表
 
 6.Step足迹记录接口
 	a)查询某个用户是否将某个景点标记为足迹	/step/{user_id}/{sight_name}		public Ret isStep()					已标记为足迹返回 Ret(1)，否则返回 Ret(0)

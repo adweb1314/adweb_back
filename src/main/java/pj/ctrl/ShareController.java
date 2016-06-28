@@ -81,4 +81,16 @@ public class ShareController {
         List<Share> list = session.selectList(statement, user_id);
         return list;
 	}
+	
+	/*获取@我的分享记录*/
+	@RequestMapping("/share/tome/{to_user_id}")
+	public List<Share> getSharesByToUserId(@PathVariable("to_user_id")String to_user_id, 
+			HttpServletRequest request,HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
+        SqlSession session = Utils.getSession();
+        
+        String statement = "mapping.shareMapper.getUsers";
+        List<Share> list = session.selectList(statement, to_user_id);
+        return list;
+	}
 }
