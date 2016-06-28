@@ -67,7 +67,7 @@ public class CollectionController {
 	}
 	
 	/*获取某个用户的所有收藏*/
-	@RequestMapping("collection/{user_id}")
+	@RequestMapping("/collection/{user_id}")
 	public List<String> getUserCollections(@PathVariable("user_id")String user_id,
 			HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");

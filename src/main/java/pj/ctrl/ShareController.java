@@ -68,7 +68,7 @@ public class ShareController {
 	}
 	
 	/*获取某个用户的所有分享记录*/
-	@RequestMapping("share/{user_id}")
+	@RequestMapping("/share/{user_id}")
 	public List<Share> getUserShares(@PathVariable("user_id")String user_id,
 			HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
