@@ -7,13 +7,13 @@
 	</select>
 	
 	<!-- 删除一个分享记录 -->
-	<delete id="deleteShare" parameterType="entity.UserSight">
-		delete from share where user_id=#{user_id} and sight_name=#{sight_name}
+	<delete id="deleteShare" parameterType="int">
+		delete from share where share_id=#{share_id}
 	</delete>
 	
 	<!-- 增加一个分享记录 -->
 	<insert id="addShare" parameterType="entity.UserSight">
-		insert into share(user_id, sight_name) values(#{user_id}, #{sight_name})
+		insert into share(user_id, sight_name, to_user_id) values(#{user_id}, #{sight_name}, #{to_user_id})
 	</insert>
 	
 	<!-- 查询一个景点的分享记录数 -->

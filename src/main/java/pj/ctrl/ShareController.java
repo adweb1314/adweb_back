@@ -31,28 +31,31 @@ public class ShareController {
         return new Ret(num>0?1:0);
 	}
 	
-	/*用户分享/取消分享某个景点*/
-	@RequestMapping("/share/toggle/{user_id}/{sight_name}")
-	public Ret toggleShare(@PathVariable("user_id")String user_id,
-    		@PathVariable("sight_name")String sight_name,
+	/*增加一条分享记录*/
+	@RequestMapping("/share/add/{user_id}/{sight_name}/{to_user_id}")
+	public Ret addShare(@PathVariable("user_id")String user_id,
+    		@PathVariable("sight_name")String sight_name,@PathVariable("to_user_id")String to_user_id,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
         SqlSession session = Utils.getSession();
         
-        String statement = "mapping.shareMapper.getShare";
-        int count = session.selectOne(statement, new UserSight(user_id, sight_name));
+        String statement = "mapping.shareMapper.addShare";
+        int num = session.insert(statement, new Share(-1, user_id, sight_name, to_user_id));
+        session.commit();
+        return new Ret(num>0?1:0);
+	}
+	
+	/*删除一条分享记录*/
+	@RequestMapping("/share/delete/{share_id}")
+	public Ret deleteShare(@PathVariable("share_id")int share_id,
+    		HttpServletRequest request,HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
+        SqlSession session = Utils.getSession();
         
-        if(count > 0){
-        	statement = "mapping.shareMapper.deleteShare";
-        	session.delete(statement, new UserSight(user_id, sight_name));
-        	session.commit();
-        	return new Ret(0);
-        }else {
-        	statement = "mapping.shareMapper.addShare";
-        	session.insert(statement, new UserSight(user_id, sight_name));
-        	session.commit();
-        	return new Ret(1);
-        }
+        String statement = "mapping.shareMapper.deleteShare";
+        int num = session.delete(statement, share_id);
+        session.commit();
+        return new Ret(num>0?1:0);
 	}
 	
 	/*获取某个景点的被分享次数*/
