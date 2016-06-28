@@ -51,3 +51,6 @@
 	a)获取一个景点所有resource表项		/resource/{sight_name}						public List<Resource> getResourceBySight	返回对应的 Sight 列表
 	b)增加一个resource表项				/resource/{sight_name}/{resource_type}		public Ret addResource						添加成功返回Ret(1)，失败返回Ret(0)
 	
+12.Value接口
+	a)获取一个景点所有value表项		/value/{sight_name}		public List<Value> getValuesBySight()		返回Value列表
+	b)增加一条value表项				/value/{sight_name}/{value_lati}/{value_longi}/{value_type}/{value_description}/{value_content}		public Ret addValue		增加成功返回Ret(1)，失败返回Ret(0)
