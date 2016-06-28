@@ -1,6 +1,8 @@
 1.User用户接口
-	a)登陆验证	/login/{id}/{password}		public Ret loginConfirm()	用户名密码匹配返回 Ret(1)，否则返回 Ret(0)
-	b)用户注册	/register/{id}/{password}	public Ret register()		注册失败返回 Ret(0)，注册成功返回 Ret(1)
+	a)登陆验证		/login/{id}/{password}		public Ret loginConfirm()	用户名密码匹配返回 Ret(1)，否则返回 Ret(0)
+	b)用户注册		/register/{id}/{password}	public Ret register()		注册失败返回 Ret(0)，注册成功返回 Ret(1)
+	c)获取用户名	/user/name/{user_id}		public String getUserName()	返回用户名
+	d)获取用户头像	/user/pic/{user_id}			public String getUserPic()	返回头像路径
 
 2.Sight景点接口
 	a)获取所有景点列表	/sight		public List<Sight> loginConfirm()	返回所有景点的列表List<Sight>
@@ -9,29 +11,29 @@
 	a)获取所有景点类型列表	/sight_type	public List<SightType> getAllSightTypes()	返回所有景点类型的列表List<SightType>
 
 4.Collection收藏记录接口
-	a)查询某个用户是否收藏某个景点		/collection/{user_id}/{sight_name}			public Ret isFav()						已收藏返回 Ret(1)，否则返回 Ret(0)
-	b)收藏/取消收藏						/collection/toggle/{user_id}/{sight_name}	public Ret toggleCollection()			收藏返回 Ret(1)，取消收藏返回 Ret(0)
-	c)获取某个景点被收藏的次数			/collectionNum/{sight_name}					public Ret getCollectionNumBySight		返回一个景点被收藏的次数
-	d)获取某个用户的所有收藏			/collection/{user_id}						public List<String> getUserCollections	返回收藏的列表
+	a)查询某个用户是否收藏某个景点		/collection/{user_id}/{sight_name}			public Ret isFav()							已收藏返回 Ret(1)，否则返回 Ret(0)
+	b)收藏/取消收藏						/collection/toggle/{user_id}/{sight_name}	public Ret toggleCollection()				收藏返回 Ret(1)，取消收藏返回 Ret(0)
+	c)获取某个景点被收藏的次数			/collectionNum/{sight_name}					public Ret getCollectionNumBySight()		返回一个景点被收藏的次数
+	d)获取某个用户的所有收藏			/collection/{user_id}						public List<String> getUserCollections()	返回收藏的列表
 
 5.Share分享记录接口
 	a)查询某个用户是否分享某个景点		/share/{user_id}/{sight_name}					public Ret isShare()				已分享返回 Ret(1)，否则返回 Ret(0)
 	b)增加一条分享记录					/share/add/{user_id}/{sight_name}/{to_user_id}	public Ret addShare()				增加成功返回Ret(1)，失败返回Ret(0)
 	c)删除一条分享记录					/share/delete/{share_id}						public Ret deleteShare()			删除成功返回Ret(1)，失败返回Ret(0)
-	d)获取一个景点被分享的次数			/shareNum/{sight_name}							public Ret getShareNumBySight		返回一个景点被分享的次数
-	e)获取某个用户的所有分享记录		/share/{user_id}								public List<Share> getUserShares	返回 Share 的列表
+	d)获取一个景点被分享的次数			/shareNum/{sight_name}							public Ret getShareNumBySight()		返回一个景点被分享的次数
+	e)获取某个用户的所有分享记录		/share/{user_id}								public List<Share> getUserShares()	返回 Share 的列表
 
 6.Step足迹记录接口
 	a)查询某个用户是否将某个景点标记为足迹	/step/{user_id}/{sight_name}		public Ret isStep()					已标记为足迹返回 Ret(1)，否则返回 Ret(0)
 	b)标记/取消标记为足迹					/step/toggle/{user_id}/{sight_name}	public Ret toggleStep()				标记返回 Ret(1)，否则返回 Ret(0)
 	c)获取一个景点被标记为足迹的次数		/stepNum/{sight_name}				public Ret getStepNumBySight()		返回该景点被标记为足迹的次数
-	d)获取某个用户的所有的足迹记录			/step/{user_id}						public List<String> getUserShares	返回足迹列表
+	d)获取某个用户的所有的足迹记录			/step/{user_id}						public List<String> getUserShares()	返回足迹列表
 
 7.Wish心愿记录接口
 	a)查询某个用户是否将某个景点标记为心愿	/wish/{user_id}/{sight_name}		public Ret isWish()					已标记为心愿返回 Ret(1)，否则返回 Ret(0)
 	b)标记/取消标记为心愿					/wish/toggle/{user_id}/{sight_name}	public Ret toggleWish()				标记返回 Ret(1)，否则返回 Ret(0)
 	c)获取一个景点被标记为心愿的次数		/wishNum/{sight_name}				public Ret getWishNumBySight()		返回该景点被标记为心愿的次数
-	d)获取某个用户的所有心愿记录			/wish/{user_id}						public List<String> getUserShares	返回心愿的列表
+	d)获取某个用户的所有心愿记录			/wish/{user_id}						public List<String> getUserShares()	返回心愿的列表
 
 8.Comment评论记录接口
 	a)增加一条评论				/comment/{user_id}/{sight_name}/{grade}/{comment}	public Ret addComment()						添加成功返回 Ret(1)，添加失败返回 Ret(0)
@@ -42,15 +44,15 @@
 	a)增加一个用户的搜索记录		/history/{user_id}/{history_content}	public Ret addUserHistory()				添加成功返回 Ret(1)，失败返回 Ret(0)
 	b)获取一个用户的所有搜索记录	/history/get/{user_id}					public List<History> getUserHistory()	返回某个用户的所有搜索记录列表List<History>
 	c)删除某条搜索记录				/history/delete/{history_id}			public Ret deleteHistoryById()			删除成功返回 Ret(1)，删除失败返回 Ret(0)
-	d)删除某个用户所有的搜索记录	/history/deleteAll/{user_id}			public Ret deleteHistoryByUser			删除成功返回 Ret(1)，删除失败返回 Ret(0)
+	d)删除某个用户所有的搜索记录	/history/deleteAll/{user_id}			public Ret deleteHistoryByUser()		删除成功返回 Ret(1)，删除失败返回 Ret(0)
 
 10.Line接口
 	a)查看一个景点的所有 line 表项		/line/{sight_name}		public List<Line> getLinesBySight()		返回对应的 line 列表
 	
 11.Resource接口
-	a)获取一个景点所有resource表项		/resource/{sight_name}						public List<Resource> getResourceBySight	返回对应的 Sight 列表
-	b)增加一个resource表项				/resource/{sight_name}/{resource_type}		public Ret addResource						添加成功返回Ret(1)，失败返回Ret(0)
+	a)获取一个景点所有resource表项		/resource/{sight_name}						public List<Resource> getResourceBySight()	返回对应的 Sight 列表
+	b)增加一个resource表项				/resource/{sight_name}/{resource_type}		public Ret addResource()					添加成功返回Ret(1)，失败返回Ret(0)
 	
 12.Value接口
 	a)获取一个景点所有value表项		/value/{sight_name}		public List<Value> getValuesBySight()		返回Value列表
-	b)增加一条value表项				/value/{sight_name}/{value_lati}/{value_longi}/{value_type}/{value_description}/{value_content}		public Ret addValue		增加成功返回Ret(1)，失败返回Ret(0)
+	b)增加一条value表项				/value/{sight_name}/{value_lati}/{value_longi}/{value_type}/{value_description}/{value_content}		public Ret addValue()		增加成功返回Ret(1)，失败返回Ret(0)

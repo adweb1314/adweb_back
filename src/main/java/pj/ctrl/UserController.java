@@ -82,4 +82,30 @@ public class UserController {
         session.commit();
         return new Ret(num);
     }
+    
+    /*根据user_id获取user_name*/
+    @RequestMapping("/user/name/{user_id}")
+    public String getUserName(@PathVariable("user_id")String user_id,
+    		HttpServletRequest request,HttpServletResponse response){
+    	response.setHeader("Access-Control-Allow-Origin", "*");
+    	
+    	SqlSession session = Utils.getSession();
+        
+        String statement = "mapping.userMapper.getUserName";
+        String name = session.selectOne(statement, user_id);
+        return name;
+    }
+    
+    /*根据user_id获取user_pic*/
+    @RequestMapping("/user/pic/{user_id}")
+    public String getUserPic(@PathVariable("user_id")String user_id,
+    		HttpServletRequest request,HttpServletResponse response){
+    	response.setHeader("Access-Control-Allow-Origin", "*");
+    	
+    	SqlSession session = Utils.getSession();
+        
+        String statement = "mapping.userMapper.getUserPic";
+        String pic = session.selectOne(statement, user_id);
+        return pic;
+    }
 }

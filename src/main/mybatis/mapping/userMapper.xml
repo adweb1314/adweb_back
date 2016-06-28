@@ -28,4 +28,14 @@
     <update id="updateNameAndPic" parameterType="entity.User">
 		update user set user_name=#{user_name}, user_pic=#{user_pic} where user_id=#{user_id}
     </update>
+    
+    <!-- 获取user_name -->
+    <select id="getUserName" parameterType="java.lang.String" resultType="java.lang.String">
+    	select user_name from user where user_id=#{user_id}
+    </select>
+    
+    <!-- 获取user_pic -->
+    <select id="getUserPic" parameterType="java.lang.String" resultType="java.lang.String">
+    	select user_pic from user where user_id=#{user_id}
+    </select>
 </mapper>
