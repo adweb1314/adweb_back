@@ -93,7 +93,7 @@ public class UserController {
         
         String statement = "mapping.userMapper.getUserName";
         String name = session.selectOne(statement, user_id);
-        return name;
+        return "{\"user_name\":\""+name+"\"}";
     }
     
     /*根据user_id获取user_pic*/
@@ -106,6 +106,6 @@ public class UserController {
         
         String statement = "mapping.userMapper.getUserPic";
         String pic = session.selectOne(statement, user_id);
-        return pic;
+        return "{\"user_pic\":\""+pic+"\"}";
     }
 }
