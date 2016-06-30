@@ -19,7 +19,7 @@ public class CollectionController {
 	
 	/*检查某个用户是否收藏该景点*/
 	@RequestMapping("/collection/{user_id}/{sight_name}")
-	public Ret isFav(@PathVariable("user_id")String user_id,
+	public Ret isCokkectioned(@PathVariable("user_id")String user_id,
     		@PathVariable("sight_name")String sight_name,
     		HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");

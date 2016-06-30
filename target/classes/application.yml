@@ -1,3 +1,0 @@
-mybatis:
-  mapperLocations: classpath:mapping/*.xml
-  typeAliasesPackage: tk.mapper.model
