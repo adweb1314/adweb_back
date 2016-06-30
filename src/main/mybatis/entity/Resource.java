@@ -1,14 +1,14 @@
 package entity;
 
 public class Resource {
-	private int resource_id;
+	private String resource_id;
 	private String sight_name;
 	private int resource_type;
 	
 	public Resource() {
 	}
 
-	public Resource(int resource_id, String sight_name, int resource_type) {
+	public Resource(String resource_id, String sight_name, int resource_type) {
 		super();
 		this.resource_id = resource_id;
 		this.sight_name = sight_name;
@@ -21,11 +21,11 @@ public class Resource {
 				+ resource_type + "]";
 	}
 
-	public int getResource_id() {
+	public String getResource_id() {
 		return resource_id;
 	}
 
-	public void setResource_id(int resource_id) {
+	public void setResource_id(String resource_id) {
 		this.resource_id = resource_id;
 	}
 

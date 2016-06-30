@@ -8,6 +8,6 @@
 	
 	<!-- 增加一个resource表项 -->
 	<insert id="addResource" parameterType="entity.Resource">
-		insert into resource(sight_name, resource_type) values(#{sight_name}, #{resource_type})
+		insert into resource(resource_id ,sight_name, resource_type) values(#{resource_id}, #{sight_name}, #{resource_type})
 	</insert>
 </mapper>

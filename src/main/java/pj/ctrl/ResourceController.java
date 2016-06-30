@@ -30,14 +30,17 @@ public class ResourceController {
 	}
 	
 	/*增加一个resource表项*/
-	@RequestMapping("/resource/{sight_name}/{resource_type}")
-	public Ret addResource(@PathVariable("sight_name")String sight_name, @PathVariable("resource_type")int resource_type,
+	@RequestMapping("/resource/{resource_id}/{sight_name}/{resource_type}")
+	public Ret addResource(
+			@PathVariable("resource_id")String resource_id,
+			@PathVariable("sight_name")String sight_name,
+			@PathVariable("resource_type")int resource_type,
 			HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
         SqlSession session = Utils.getSession();
         
         String statement = "mapping.resourceMapper.addResource";
-        int num = session.insert(statement, new Resource(-1, sight_name, resource_type));
+        int num = session.insert(statement, new Resource(resource_id, sight_name, resource_type));
         session.commit();
         return new Ret(num>0?1:0, num);
 	}
