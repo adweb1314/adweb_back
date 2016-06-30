@@ -16,6 +16,7 @@ import pj.support.Utils;
 @RestController
 public class LineController {
 	
+	/*获取某个景点的所有line表项*/
 	@RequestMapping("/line/{sight_name}")
 	public List<Line> getLinesBySight(@PathVariable("sight_name")String sight_name,
 			HttpServletRequest request,HttpServletResponse response){

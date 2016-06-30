@@ -71,7 +71,7 @@ public class UserController {
     
     /*用户修改用户名和头像*/
     @RequestMapping("/user/updateNameAndPic/{user_id}/{user_name}/{user_pic}")
-    public Ret updatePassword(@PathVariable("user_id")String user_id, @PathVariable("user_name")String user_name, @PathVariable("user_pic")String user_pic,
+    public Ret updateNameAndPic(@PathVariable("user_id")String user_id, @PathVariable("user_name")String user_name, @PathVariable("user_pic")String user_pic,
     		HttpServletRequest request,HttpServletResponse response){
     	response.setHeader("Access-Control-Allow-Origin", "*");
     	

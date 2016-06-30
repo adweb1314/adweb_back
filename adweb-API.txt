@@ -1,59 +1,61 @@
-1.UserÓÃ»§½Ó¿Ú
-	a)µÇÂ½ÑéÖ¤		/login/{id}/{password}		public Ret loginConfirm()	ÓÃ»§ÃûÃÜÂëÆ¥Åä·µ»Ø Ret(1)£¬·ñÔò·µ»Ø Ret(0)
-	b)ÓÃ»§×¢²á		/register/{id}/{password}	public Ret register()		×¢²áÊ§°Ü·µ»Ø Ret(0)£¬×¢²á³É¹¦·µ»Ø Ret(1)
-	c)»ñÈ¡ÓÃ»§Ãû	/user/name/{user_id}		public String getUserName()	·µ»ØÓÃ»§Ãû
-	d)»ñÈ¡ÓÃ»§Í·Ïñ	/user/pic/{user_id}			public String getUserPic()	·µ»ØÍ·ÏñÂ·¾¶
+ï»¿1.Userç”¨æˆ·æ¥å£
+	a)ç™»é™†éªŒè¯		/login/{id}/{password}						public Ret loginConfirm()	ç”¨æˆ·åå¯†ç åŒ¹é…è¿”å› Ret(1)ï¼Œå¦åˆ™è¿”å› Ret(0)
+	b)ç”¨æˆ·æ³¨å†Œ		/register/{id}/{password}					public Ret register()		æ³¨å†Œå¤±è´¥è¿”å› Ret(0)ï¼Œæ³¨å†ŒæˆåŠŸè¿”å› Ret(1)
+	c)è·å–ç”¨æˆ·å		/user/name/{user_id}						public String getUserName()	è¿”å›ç”¨æˆ·å
+	d)è·å–ç”¨æˆ·å¤´åƒ		/user/pic/{user_id}						public String getUserPic()	è¿”å›å¤´åƒè·¯å¾„
+	e)ä¿®æ”¹å¯†ç 		/user/updatePassword/{user_id}/{user_password}			public Ret updatePassword()	ä¿®æ”¹æˆåŠŸè¿”å›Ret(1)ï¼Œå¤±è´¥è¿”å›Ret(0)
+	f)ä¿®æ”¹ç”¨æˆ·åå’Œå¤´åƒ	/user/updateNameAndPic/{user_id}/{user_name}/{user_pic}		public Ret updateNameAndPic()	ä¿®æ”¹æˆåŠŸè¿”å›Ret(1),ä¿®æ”¹å¤±è´¥è¿”å›Ret(0)
 
-2.Sight¾°µã½Ó¿Ú
-	a)»ñÈ¡ËùÓĞ¾°µãÁĞ±í	/sight		public List<Sight> loginConfirm()	·µ»ØËùÓĞ¾°µãµÄÁĞ±íList<Sight>
+2.Sightæ™¯ç‚¹æ¥å£
+	a)è·å–æ‰€æœ‰æ™¯ç‚¹åˆ—è¡¨	/sight		public List<Sight> loginConfirm()	è¿”å›æ‰€æœ‰æ™¯ç‚¹çš„åˆ—è¡¨List<Sight>
 
-3.SightType¾°µãÀàĞÍ½Ó¿Ú
-	a)»ñÈ¡ËùÓĞ¾°µãÀàĞÍÁĞ±í	/sight_type	public List<SightType> getAllSightTypes()	·µ»ØËùÓĞ¾°µãÀàĞÍµÄÁĞ±íList<SightType>
+3.SightTypeæ™¯ç‚¹ç±»å‹æ¥å£
+	a)è·å–æ‰€æœ‰æ™¯ç‚¹ç±»å‹åˆ—è¡¨	/sight_type	public List<SightType> getAllSightTypes()	è¿”å›æ‰€æœ‰æ™¯ç‚¹ç±»å‹çš„åˆ—è¡¨List<SightType>
 
-4.CollectionÊÕ²Ø¼ÇÂ¼½Ó¿Ú
-	a)²éÑ¯Ä³¸öÓÃ»§ÊÇ·ñÊÕ²ØÄ³¸ö¾°µã		/collection/{user_id}/{sight_name}			public Ret isFav()							ÒÑÊÕ²Ø·µ»Ø Ret(1)£¬·ñÔò·µ»Ø Ret(0)
-	b)ÊÕ²Ø/È¡ÏûÊÕ²Ø						/collection/toggle/{user_id}/{sight_name}	public Ret toggleCollection()				ÊÕ²Ø·µ»Ø Ret(1)£¬È¡ÏûÊÕ²Ø·µ»Ø Ret(0)
-	c)»ñÈ¡Ä³¸ö¾°µã±»ÊÕ²ØµÄ´ÎÊı			/collectionNum/{sight_name}					public Ret getCollectionNumBySight()		·µ»ØÒ»¸ö¾°µã±»ÊÕ²ØµÄ´ÎÊı
-	d)»ñÈ¡Ä³¸öÓÃ»§µÄËùÓĞÊÕ²Ø			/collection/{user_id}						public List<String> getUserCollections()	·µ»ØÊÕ²ØµÄÁĞ±í
+4.Collectionæ”¶è—è®°å½•æ¥å£
+	a)æŸ¥è¯¢æŸä¸ªç”¨æˆ·æ˜¯å¦æ”¶è—æŸä¸ªæ™¯ç‚¹		/collection/{user_id}/{sight_name}		public Ret isFav()				å·²æ”¶è—è¿”å› Ret(1)ï¼Œå¦åˆ™è¿”å› Ret(0)
+	b)æ”¶è—/å–æ¶ˆæ”¶è—				/collection/toggle/{user_id}/{sight_name}	public Ret toggleCollection()			æ”¶è—è¿”å› Ret(1)ï¼Œå–æ¶ˆæ”¶è—è¿”å› Ret(0)
+	c)è·å–æŸä¸ªæ™¯ç‚¹è¢«æ”¶è—çš„æ¬¡æ•°		/collectionNum/{sight_name}			public Ret getCollectionNumBySight()		è¿”å›ä¸€ä¸ªæ™¯ç‚¹è¢«æ”¶è—çš„æ¬¡æ•°
+	d)è·å–æŸä¸ªç”¨æˆ·çš„æ‰€æœ‰æ”¶è—		/collection/{user_id}				public List<String> getUserCollections()	è¿”å›æ”¶è—çš„åˆ—è¡¨
 
-5.Share·ÖÏí¼ÇÂ¼½Ó¿Ú
-	a)²éÑ¯Ä³¸öÓÃ»§ÊÇ·ñ·ÖÏíÄ³¸ö¾°µã		/share/{user_id}/{sight_name}					public Ret isShare()						ÒÑ·ÖÏí·µ»Ø Ret(1)£¬·ñÔò·µ»Ø Ret(0)
-	b)Ôö¼ÓÒ»Ìõ·ÖÏí¼ÇÂ¼					/share/add/{user_id}/{sight_name}/{to_user_id}	public Ret addShare()						Ôö¼Ó³É¹¦·µ»ØRet(1)£¬Ê§°Ü·µ»ØRet(0)
-	c)É¾³ıÒ»Ìõ·ÖÏí¼ÇÂ¼					/share/delete/{share_id}						public Ret deleteShare()					É¾³ı³É¹¦·µ»ØRet(1)£¬Ê§°Ü·µ»ØRet(0)
-	d)»ñÈ¡Ò»¸ö¾°µã±»·ÖÏíµÄ´ÎÊı			/shareNum/{sight_name}							public Ret getShareNumBySight()				·µ»ØÒ»¸ö¾°µã±»·ÖÏíµÄ´ÎÊı
-	e)»ñÈ¡Ä³¸öÓÃ»§µÄËùÓĞ·ÖÏí¼ÇÂ¼		/share/{user_id}								public List<Share> getUserShares()			·µ»Ø Share µÄÁĞ±í
-	f)»ñÈ¡@ÎÒµÄ·ÖÏí¼ÇÂ¼					/share/tome/{to_user_id}						public List<Share> getSharesByToUserId()	·µ»ØShareÁĞ±í
+5.Shareåˆ†äº«è®°å½•æ¥å£
+	a)æŸ¥è¯¢æŸä¸ªç”¨æˆ·æ˜¯å¦åˆ†äº«æŸä¸ªæ™¯ç‚¹		/share/{user_id}/{sight_name}				public Ret isShare()				å·²åˆ†äº«è¿”å› Ret(1)ï¼Œå¦åˆ™è¿”å› Ret(0)
+	b)å¢åŠ ä¸€æ¡åˆ†äº«è®°å½•			/share/add/{user_id}/{sight_name}/{to_user_id}		public Ret addShare()				å¢åŠ æˆåŠŸè¿”å›Ret(1)ï¼Œå¤±è´¥è¿”å›Ret(0)
+	c)åˆ é™¤ä¸€æ¡åˆ†äº«è®°å½•			/share/delete/{share_id}				public Ret deleteShare()			åˆ é™¤æˆåŠŸè¿”å›Ret(1)ï¼Œå¤±è´¥è¿”å›Ret(0)
+	d)è·å–ä¸€ä¸ªæ™¯ç‚¹è¢«åˆ†äº«çš„æ¬¡æ•°		/shareNum/{sight_name}					public Ret getShareNumBySight()			è¿”å›ä¸€ä¸ªæ™¯ç‚¹è¢«åˆ†äº«çš„æ¬¡æ•°
+	e)è·å–æŸä¸ªç”¨æˆ·çš„æ‰€æœ‰åˆ†äº«è®°å½•		/share/{user_id}					public List<Share> getUserShares()		è¿”å› Share çš„åˆ—è¡¨
+	f)è·å–@æˆ‘çš„åˆ†äº«è®°å½•			/share/tome/{to_user_id}				public List<Share> getSharesByToUserId()	è¿”å›Shareåˆ—è¡¨
 
-6.Step×ã¼£¼ÇÂ¼½Ó¿Ú
-	a)²éÑ¯Ä³¸öÓÃ»§ÊÇ·ñ½«Ä³¸ö¾°µã±ê¼ÇÎª×ã¼£	/step/{user_id}/{sight_name}		public Ret isStep()					ÒÑ±ê¼ÇÎª×ã¼£·µ»Ø Ret(1)£¬·ñÔò·µ»Ø Ret(0)
-	b)±ê¼Ç/È¡Ïû±ê¼ÇÎª×ã¼£					/step/toggle/{user_id}/{sight_name}	public Ret toggleStep()				±ê¼Ç·µ»Ø Ret(1)£¬·ñÔò·µ»Ø Ret(0)
-	c)»ñÈ¡Ò»¸ö¾°µã±»±ê¼ÇÎª×ã¼£µÄ´ÎÊı		/stepNum/{sight_name}				public Ret getStepNumBySight()		·µ»Ø¸Ã¾°µã±»±ê¼ÇÎª×ã¼£µÄ´ÎÊı
-	d)»ñÈ¡Ä³¸öÓÃ»§µÄËùÓĞµÄ×ã¼£¼ÇÂ¼			/step/{user_id}						public List<String> getUserShares()	·µ»Ø×ã¼£ÁĞ±í
+6.Stepè¶³è¿¹è®°å½•æ¥å£
+	a)æŸ¥è¯¢æŸä¸ªç”¨æˆ·æ˜¯å¦å°†æŸä¸ªæ™¯ç‚¹æ ‡è®°ä¸ºè¶³è¿¹	/step/{user_id}/{sight_name}		public Ret isStep()			å·²æ ‡è®°ä¸ºè¶³è¿¹è¿”å› Ret(1)ï¼Œå¦åˆ™è¿”å› Ret(0)
+	b)æ ‡è®°/å–æ¶ˆæ ‡è®°ä¸ºè¶³è¿¹			/step/toggle/{user_id}/{sight_name}	public Ret toggleStep()			æ ‡è®°è¿”å› Ret(1)ï¼Œå¦åˆ™è¿”å› Ret(0)
+	c)è·å–ä¸€ä¸ªæ™¯ç‚¹è¢«æ ‡è®°ä¸ºè¶³è¿¹çš„æ¬¡æ•°	/stepNum/{sight_name}			public Ret getStepNumBySight()		è¿”å›è¯¥æ™¯ç‚¹è¢«æ ‡è®°ä¸ºè¶³è¿¹çš„æ¬¡æ•°
+	d)è·å–æŸä¸ªç”¨æˆ·çš„æ‰€æœ‰çš„è¶³è¿¹è®°å½•		/step/{user_id}				public List<String> getUserShares()	è¿”å›è¶³è¿¹åˆ—è¡¨
 
-7.WishĞÄÔ¸¼ÇÂ¼½Ó¿Ú
-	a)²éÑ¯Ä³¸öÓÃ»§ÊÇ·ñ½«Ä³¸ö¾°µã±ê¼ÇÎªĞÄÔ¸	/wish/{user_id}/{sight_name}		public Ret isWish()					ÒÑ±ê¼ÇÎªĞÄÔ¸·µ»Ø Ret(1)£¬·ñÔò·µ»Ø Ret(0)
-	b)±ê¼Ç/È¡Ïû±ê¼ÇÎªĞÄÔ¸					/wish/toggle/{user_id}/{sight_name}	public Ret toggleWish()				±ê¼Ç·µ»Ø Ret(1)£¬·ñÔò·µ»Ø Ret(0)
-	c)»ñÈ¡Ò»¸ö¾°µã±»±ê¼ÇÎªĞÄÔ¸µÄ´ÎÊı		/wishNum/{sight_name}				public Ret getWishNumBySight()		·µ»Ø¸Ã¾°µã±»±ê¼ÇÎªĞÄÔ¸µÄ´ÎÊı
-	d)»ñÈ¡Ä³¸öÓÃ»§µÄËùÓĞĞÄÔ¸¼ÇÂ¼			/wish/{user_id}						public List<String> getUserShares()	·µ»ØĞÄÔ¸µÄÁĞ±í
+7.Wishå¿ƒæ„¿è®°å½•æ¥å£
+	a)æŸ¥è¯¢æŸä¸ªç”¨æˆ·æ˜¯å¦å°†æŸä¸ªæ™¯ç‚¹æ ‡è®°ä¸ºå¿ƒæ„¿	/wish/{user_id}/{sight_name}		public Ret isWish()			å·²æ ‡è®°ä¸ºå¿ƒæ„¿è¿”å› Ret(1)ï¼Œå¦åˆ™è¿”å› Ret(0)
+	b)æ ‡è®°/å–æ¶ˆæ ‡è®°ä¸ºå¿ƒæ„¿			/wish/toggle/{user_id}/{sight_name}	public Ret toggleWish()			æ ‡è®°è¿”å› Ret(1)ï¼Œå¦åˆ™è¿”å› Ret(0)
+	c)è·å–ä¸€ä¸ªæ™¯ç‚¹è¢«æ ‡è®°ä¸ºå¿ƒæ„¿çš„æ¬¡æ•°	/wishNum/{sight_name}			public Ret getWishNumBySight()		è¿”å›è¯¥æ™¯ç‚¹è¢«æ ‡è®°ä¸ºå¿ƒæ„¿çš„æ¬¡æ•°
+	d)è·å–æŸä¸ªç”¨æˆ·çš„æ‰€æœ‰å¿ƒæ„¿è®°å½•		/wish/{user_id}				public List<String> getUserShares()	è¿”å›å¿ƒæ„¿çš„åˆ—è¡¨
 
-8.CommentÆÀÂÛ¼ÇÂ¼½Ó¿Ú
-	a)Ôö¼ÓÒ»ÌõÆÀÂÛ				/comment/{user_id}/{sight_name}/{grade}/{comment}	public Ret addComment()						Ìí¼Ó³É¹¦·µ»Ø Ret(1)£¬Ìí¼ÓÊ§°Ü·µ»Ø Ret(0)
-	b)»ñÈ¡Ò»¸ö¾°µãµÄËùÓĞÆÀÂÛ	/comment/{sight_name}								public List<Comment> getCommentBySight()	·µ»ØÒ»¸ö¾°µãËùÓĞÆÀÂÛµÄÁĞ±íList<Comment>
-	c)É¾³ıÒ»ÌõÆÀÂÛ				/comment/delete/{comment_id}						public Ret deleteByCommentID()				É¾³ı³É¹¦·µ»Ø Ret(1)£¬Ê§°Ü·µ»Ø Ret(0)
+8.Commentè¯„è®ºè®°å½•æ¥å£
+	a)å¢åŠ ä¸€æ¡è¯„è®º			/comment/{user_id}/{sight_name}/{grade}/{comment}	public Ret addComment()				æ·»åŠ æˆåŠŸè¿”å› Ret(1)ï¼Œæ·»åŠ å¤±è´¥è¿”å› Ret(0)
+	b)è·å–ä¸€ä¸ªæ™¯ç‚¹çš„æ‰€æœ‰è¯„è®º	/comment/{sight_name}					public List<Comment> getCommentBySight()	è¿”å›ä¸€ä¸ªæ™¯ç‚¹æ‰€æœ‰è¯„è®ºçš„åˆ—è¡¨List<Comment>
+	c)åˆ é™¤ä¸€æ¡è¯„è®º			/comment/delete/{comment_id}				public Ret deleteByCommentID()			åˆ é™¤æˆåŠŸè¿”å› Ret(1)ï¼Œå¤±è´¥è¿”å› Ret(0)
 
-9.HistoryËÑË÷¼ÇÂ¼½Ó¿Ú
-	a)Ôö¼ÓÒ»¸öÓÃ»§µÄËÑË÷¼ÇÂ¼		/history/{user_id}/{history_content}	public Ret addUserHistory()				Ìí¼Ó³É¹¦·µ»Ø Ret(1)£¬Ê§°Ü·µ»Ø Ret(0)
-	b)»ñÈ¡Ò»¸öÓÃ»§µÄËùÓĞËÑË÷¼ÇÂ¼	/history/get/{user_id}					public List<History> getUserHistory()	·µ»ØÄ³¸öÓÃ»§µÄËùÓĞËÑË÷¼ÇÂ¼ÁĞ±íList<History>
-	c)É¾³ıÄ³ÌõËÑË÷¼ÇÂ¼				/history/delete/{history_id}			public Ret deleteHistoryById()			É¾³ı³É¹¦·µ»Ø Ret(1)£¬É¾³ıÊ§°Ü·µ»Ø Ret(0)
-	d)É¾³ıÄ³¸öÓÃ»§ËùÓĞµÄËÑË÷¼ÇÂ¼	/history/deleteAll/{user_id}			public Ret deleteHistoryByUser()		É¾³ı³É¹¦·µ»Ø Ret(1)£¬É¾³ıÊ§°Ü·µ»Ø Ret(0)
+9.Historyæœç´¢è®°å½•æ¥å£
+	a)å¢åŠ ä¸€ä¸ªç”¨æˆ·çš„æœç´¢è®°å½•	/history/{user_id}/{history_content}	public Ret addUserHistory()		æ·»åŠ æˆåŠŸè¿”å› Ret(1)ï¼Œå¤±è´¥è¿”å› Ret(0)
+	b)è·å–ä¸€ä¸ªç”¨æˆ·çš„æ‰€æœ‰æœç´¢è®°å½•	/history/get/{user_id}			public List<History> getUserHistory()	è¿”å›æŸä¸ªç”¨æˆ·çš„æ‰€æœ‰æœç´¢è®°å½•åˆ—è¡¨List<History>
+	c)åˆ é™¤æŸæ¡æœç´¢è®°å½•		/history/delete/{history_id}		public Ret deleteHistoryById()		åˆ é™¤æˆåŠŸè¿”å› Ret(1)ï¼Œåˆ é™¤å¤±è´¥è¿”å› Ret(0)
+	d)åˆ é™¤æŸä¸ªç”¨æˆ·æ‰€æœ‰çš„æœç´¢è®°å½•	/history/deleteAll/{user_id}		public Ret deleteHistoryByUser()	åˆ é™¤æˆåŠŸè¿”å› Ret(1)ï¼Œåˆ é™¤å¤±è´¥è¿”å› Ret(0)
 
-10.Line½Ó¿Ú
-	a)²é¿´Ò»¸ö¾°µãµÄËùÓĞ line ±íÏî		/line/{sight_name}		public List<Line> getLinesBySight()		·µ»Ø¶ÔÓ¦µÄ line ÁĞ±í
+10.Lineæ¥å£
+	a)æŸ¥çœ‹ä¸€ä¸ªæ™¯ç‚¹çš„æ‰€æœ‰ line è¡¨é¡¹		/line/{sight_name}		public List<Line> getLinesBySight()		è¿”å›å¯¹åº”çš„ line åˆ—è¡¨
 	
-11.Resource½Ó¿Ú
-	a)»ñÈ¡Ò»¸ö¾°µãËùÓĞresource±íÏî		/resource/{sight_name}						public List<Resource> getResourceBySight()	·µ»Ø¶ÔÓ¦µÄ Sight ÁĞ±í
-	b)Ôö¼ÓÒ»¸öresource±íÏî				/resource/{sight_name}/{resource_type}		public Ret addResource()					Ìí¼Ó³É¹¦·µ»ØRet(1)£¬Ê§°Ü·µ»ØRet(0)
+11.Resourceæ¥å£
+	a)è·å–ä¸€ä¸ªæ™¯ç‚¹æ‰€æœ‰resourceè¡¨é¡¹		/resource/{sight_name}				public List<Resource> getResourceBySight()	è¿”å›å¯¹åº”çš„ Sight åˆ—è¡¨
+	b)å¢åŠ ä¸€ä¸ªresourceè¡¨é¡¹			/resource/{sight_name}/{resource_type}		public Ret addResource()			æ·»åŠ æˆåŠŸè¿”å›Ret(1)ï¼Œå¤±è´¥è¿”å›Ret(0)
 	
-12.Value½Ó¿Ú
-	a)»ñÈ¡Ò»¸ö¾°µãËùÓĞvalue±íÏî		/value/{sight_name}		public List<Value> getValuesBySight()		·µ»ØValueÁĞ±í
-	b)Ôö¼ÓÒ»Ìõvalue±íÏî				/value/{sight_name}/{value_lati}/{value_longi}/{value_type}/{value_description}/{value_content}		public Ret addValue()		Ôö¼Ó³É¹¦·µ»ØRet(1)£¬Ê§°Ü·µ»ØRet(0)
+12.Valueæ¥å£
+	a)è·å–ä¸€ä¸ªæ™¯ç‚¹æ‰€æœ‰valueè¡¨é¡¹		/value/{sight_name}											public List<Value> getValuesBySight()	è¿”å›Valueåˆ—è¡¨
+	b)å¢åŠ ä¸€æ¡valueè¡¨é¡¹			/value/{sight_name}/{value_lati}/{value_longi}/{value_type}/{value_description}/{value_content}		public Ret addValue()			å¢åŠ æˆåŠŸè¿”å›Ret(1)ï¼Œå¤±è´¥è¿”å›Ret(0)

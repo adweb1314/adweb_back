@@ -68,7 +68,7 @@ public class StepController {
 	
 	/*获取某个用户的所有的足迹记录*/
 	@RequestMapping("/step/{user_id}")
-	public List<String> getUserShares(@PathVariable("user_id")String user_id,
+	public List<String> getUserSteps(@PathVariable("user_id")String user_id,
 			HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
         SqlSession session = Utils.getSession();

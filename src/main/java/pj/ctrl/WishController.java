@@ -68,7 +68,7 @@ public class WishController {
 	
 	/*获取某个用户的所有心愿记录*/
 	@RequestMapping("/wish/{user_id}")
-	public List<String> getUserShares(@PathVariable("user_id")String user_id,
+	public List<String> getWishByUser(@PathVariable("user_id")String user_id,
 			HttpServletRequest request,HttpServletResponse response){
 		response.setHeader("Access-Control-Allow-Origin", "*");
         SqlSession session = Utils.getSession();
