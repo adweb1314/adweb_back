@@ -49,7 +49,7 @@ public class UserController {
         	return new Ret(0);
         }else {
         	statement = "mapping.userMapper.addUser";
-        	session.insert(statement, new User(id, id, password, null));
+        	session.insert(statement, new User(id, id, password, "img/user_defaultIpng"));
         	session.commit();
         	return new Ret(1);	
         }
